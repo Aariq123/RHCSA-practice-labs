@@ -1,4 +1,4 @@
-##**Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root1234. Log in with root and perform the remaining tasks. ##
+**Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root1234. Log in with root and perform the remaining tasks.
 
 
 interrupt the boot process, press `e` to edit the grub config file
