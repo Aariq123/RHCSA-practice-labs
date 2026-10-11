@@ -1,4 +1,7 @@
 task 6
+* **Practice Source Material:** Questions adapted from the public (https://github.com/ive663/RHCSA) repository. 
+* **Lab Environment:** All solutions were executed, verified, and thoroughly tested inside a virtualized **Rocky Linux 10** instance
+
 
 ## **Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root. Log in with root and perform the remaining tasks.
 
