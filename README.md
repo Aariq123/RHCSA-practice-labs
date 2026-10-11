@@ -1,3 +1,5 @@
+task 6
+
 ## **Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root. Log in with root and perform the remaining tasks.
 
 
@@ -29,13 +31,13 @@ add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to co
 
 ## **Task 05**: Set SELinux to permissive mode.   
 
-`vi /etc/selinux/config`  
+`nano /etc/selinux/config`  
 find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**  
 
   
 ## Task 06: Perform a case-insensitive search for all lines in the /usr/share/dict/linux.words file that begin with the pattern “essential”. Redirect the output to /tmp/pattern.txt file. Make sure that empty lines are omitted.
 
-`grep -e '^essential' /usr/share/dict/linux.words | grep -v '^$' `  
+`grep -e '^essential' /usr/share/dict/linux.words  `  
 
 
 **Task 07**: Change the primary command prompt for the root user to display the hostname, username, and current working directory information in that order. Update the peruser initialization file for permanence.  
