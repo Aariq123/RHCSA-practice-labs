@@ -1,16 +1,15 @@
-## **Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root1234. Log in with root and perform the remaining tasks.
+## **Task 01**: Assuming the root user password is lost, and your system is running in multi-user target with no current root session open. Reboot the system into an appropriate target, and reset the root user password to root. Log in with root and perform the remaining tasks.
 
 
 interrupt the boot process, press `e` to edit the grub config file
 add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to continue the boot process
 
-`mount -o remount,rw /`  
-`chroot /sysroot`  
+`mount -o remount,rw /`    
 `passwd`  
       enter new pasword twice  
 `touch /.autorelabel`  
-`exit`  
-`exit`  
+`exec /sbin/bash`  
+  
 
 
 ## **Task 02**: Using a manual method (create/modify files by hand), configure a network connection on the primary network device with IP address 192.168.0.241/24, gateway 192.168.0.1, and nameserver 192.168.0.1 (you may use different IP assignments based on your lab environment).
