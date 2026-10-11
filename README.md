@@ -1,4 +1,4 @@
-task 6
+task 13
 * **Practice Source Material:** Questions adapted from the public (https://github.com/ive663/RHCSA) repository. 
 * **Lab Environment:** All solutions were executed, verified, and thoroughly tested inside a virtualized **Rocky Linux 10** instance
 
