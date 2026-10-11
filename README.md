@@ -37,12 +37,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
   
 ## Task 06: Perform a case-insensitive search for all lines in the /usr/share/dict/linux.words file that begin with the pattern “essential”. Redirect the output to /tmp/pattern.txt file. Make sure that empty lines are omitted.
 
-`grep -e '^essential' /usr/share/dict/linux.words  `  
-
-
-**Task 07**: Change the primary command prompt for the root user to display the hostname, username, and current working directory information in that order. Update the peruser initialization file for permanence.  
-
-`echo "PS1=\"[\\h@\\u:\\w]\> \"" >> /root/.bashrc`  
+`grep -i '^essential' /usr/share/dict/linux.words > /tmp/pattern.txt`    
 
   
 ## **Task 08**: Create user accounts called user10, user20, and user30. Set their passwords to Temp1234. Make accounts for user10 and user30 to expire on December 31, 2021.  
