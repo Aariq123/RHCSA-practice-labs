@@ -12,14 +12,15 @@ add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to co
   
 
 
+
 ## **Task 02**: Configure a network connection on the primary network device with IP address 192.168.0.241/24, gateway 192.168.0.1, and nameserver 192.168.0.1 (you may use different IP assignments based on your lab environment).
   
 `nmcli connection add con-name static-config ifname ens192 type ethernet ip4 192.168.0.241/24 gw4 192.168.0.1 ipv4.dns 192.168.0.1 autoconnect no`  
+
   
-## **Task 03**: Using a manual method (modify file by hand), set the system hostname to rhcsa1.example.com and alias rhcsa1. Make sure that the new hostname is reflected in the command prompt.  
-`hostnamectl set-hostname rhcsa1.example.com`  
-`echo "192.168.0.241        rhcsa1" >> /etc/hosts `  -- it's still unclear whether the alias assignment works this way, but it's the best solution that I could find..    
-`su -`  
+## **Task 03**: Using a manual method (modify file by hand), set the system hostname to rhcsa1.example.com. Make sure that the new hostname is reflected in the command prompt.  
+`nmcli general hostname rhcsa1.example.com`  
+ 
 
 
 ## **Task 04**: Set the default boot target to multi-user.   
