@@ -4,7 +4,7 @@
 interrupt the boot process, press `e` to edit the grub config file
 add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to continue the boot process
 
-`mount -o remount,rw /sysroot`  
+`mount -o remount,rw /`  
 `chroot /sysroot`  
 `passwd`  
       enter new pasword twice  
