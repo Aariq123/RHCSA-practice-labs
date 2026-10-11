@@ -48,8 +48,8 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `passwd user10`  enter passwd   
 `passwd user20`  enter passwd      
 `passwd user30`  enter passwd   
-`chage --expiredate "2021-12-31" user10`  
-`chage --expiredate "2021-12-30" user30`  
+`chage -E "2021-12-31" user10`  
+`chage -E "2021-12-30" user30`  
   
 ## **Task 10**: Create a user account called user40 with UID 2929. Set the password to user1234.  
 `useradd user40 -u 2929`  
