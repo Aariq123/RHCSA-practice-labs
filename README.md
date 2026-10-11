@@ -61,7 +61,6 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 
 ## **Task 11**: Create a directory called dir1 under /tmp with ownership and owning group set to root. Configure default ACLs on the directory and give user user10 read, write, and execute permissions.  
 
-`#!/bin/bash`
 
 `mkdir /tmp/dir1`  
 `chown root:root /tmp/dir1`  
@@ -69,25 +68,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `setfacl -m d:u:user10:rwX /tmp/dir1`  
 `getfacl /tmp/dir1`  
   
-  
-## **Task 12**: Attach the RHEL 8 ISO image to the VM and mount it persistently to /mnt/cdrom. Define access to both repositories and confirm.  
-  
-`mkdir /mnt/iso`  
-`echo "/rhel-8.3-x86_64-dvd.iso      /mnt/iso    iso9660    defaults    0 0" >> /etc/fstab`  
-`mount -a`  
-`vi /etc/yum.repos.d/local.repo`   
-
-_[baseos]_  
-_name=baseos repo from the mounted iso file_  
-_baseurl=file:///mnt/iso/BaseOS_  
-_enabled=1_  
-_gpgcheck=0_  
-  
-_[appstream]_  
-_name=appstream repo from the mounted iso file_  
-_baseurl=file:///mnt/iso/AppStream_  
-_enabled=1_  
-_gpgcheck=0_   
+   
 
 
 ## Task 13: Create a logical volume called lvol1 of size 300MB in vgtest volume group. Mount the Ext4 file system persistently to /mnt/mnt1.  
