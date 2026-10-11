@@ -2,7 +2,7 @@
 
 
 interrupt the boot process, press `e` to edit the grub config file
-add `rd.break` at the end of the Linux kernel line, press **ctrl+x** to continue the boot process
+add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to continue the boot process
 
 `mount -o remount,rw /sysroot`  
 `chroot /sysroot`  
