@@ -12,7 +12,7 @@ add `init=/bin/bash` at the end of the Linux kernel line, press **ctrl+x** to co
   
 
 
-## **Task 02**: Using a manual method (create/modify files by hand), configure a network connection on the primary network device with IP address 192.168.0.241/24, gateway 192.168.0.1, and nameserver 192.168.0.1 (you may use different IP assignments based on your lab environment).
+## **Task 02**: Configure a network connection on the primary network device with IP address 192.168.0.241/24, gateway 192.168.0.1, and nameserver 192.168.0.1 (you may use different IP assignments based on your lab environment).
   
 `nmcli connection add con-name static-config ifname ens192 type ethernet ip4 192.168.0.241/24 gw4 192.168.0.1 ipv4.dns 192.168.0.1 autoconnect no`  
   
