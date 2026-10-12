@@ -100,7 +100,7 @@ UUID=(the lv uuid here)     /mnt/mnt1    ext4    defaults      0 0"
 
 `lvcreate -n lvswap -L 300m vgtest`  
 `mkswap /dev/vgtest/lvswap`  
-`echo "UUID=xxxx-xxxx-xxxx-xxxx-xxxx         swap       swap       defaults      0 0" >> /etc/fstab`  
+`nano /etc/fstab` `UUID=xxxx-xxxx-xxxx-xxxx-xxxx         swap       swap       defaults      0 0`  
 `swapon -a`  
 `swapon --show`  
   
