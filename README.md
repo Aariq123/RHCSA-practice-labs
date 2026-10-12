@@ -1,7 +1,7 @@
 
 * **Practice Source Material:** Questions adapted from the public (https://github.com/ive663/RHCSA) repository. 
-* **Lab Environment:** All solutions were executed, verified, and thoroughly tested inside a virtualized **Rocky Linux 10** instance, I haven't finished the whole rhcsa syllabus but here is a part of what i practised 
-
+* **Lab Environment:** All solutions were executed, verified, and thoroughly tested inside a virtualized **Rocky Linux 10** instance
+* This repository serves as a live portfolio tracking my hands-on practice progression through the RHCSA objectives. I am actively expanding this lab suite as I complete each new domain module.
 
 
 
