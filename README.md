@@ -1,4 +1,4 @@
-task 13
+
 * **Practice Source Material:** Questions adapted from the public (https://github.com/ive663/RHCSA) repository. 
 * **Lab Environment:** All solutions were executed, verified, and thoroughly tested inside a virtualized **Rocky Linux 10** instance
 
@@ -43,7 +43,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `grep -i '^essential' /usr/share/dict/linux.words > /tmp/pattern.txt`    
 
   
-## **Task 08**: Create user accounts called user10, user20, and user30. Set their passwords to Temp1234. Make accounts for user10 and user30 to expire on December 31, 2021.  
+## **Task 07**: Create user accounts called user10, user20, and user30. Set their passwords to Temp1234. Make accounts for user10 and user30 to expire on December 31, 2021.  
 
 `useradd user10`  
 `useradd user20`  
@@ -54,12 +54,12 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `chage -E "2021-12-31" user10`  
 `chage -E "2021-12-30" user30`  
   
-## **Task 10**: Create a user account called user40 with UID 2929. Set the password to user1234.  
+## **Task 08**: Create a user account called user40 with UID 2929. Set the password to user1234.  
 `useradd user40 -u 2929`  
 `passwd user40  `enter passwd  
 
 
-## **Task 11**: Create a directory called dir1 under /tmp with ownership and owning group set to root. Configure default ACLs on the directory and give user user10 read, write, and execute permissions.  
+## **Task 09**: Create a directory called dir1 under /tmp with ownership and owning group set to root. Configure default ACLs on the directory and give user user10 read, write, and execute permissions.  
 
 
 `mkdir /tmp/dir1`  
@@ -71,7 +71,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
    
 
 
-## Task 13: Create a logical volume called lvol1 of size 300MB in vgtest volume group. Mount the Ext4 file system persistently to /mnt/mnt1.  
+## Task 10: Create a logical volume called lvol1 of size 300MB in vgtest volume group. Mount the Ext4 file system persistently to /mnt/mnt1.  
 
 `fdisk /dev/sdb`   assume we are dealing with gpt partition scheme
 `fdisk` `n`  
@@ -90,12 +90,12 @@ UUID=(the lv uuid here)     /mnt/mnt1    ext4    defaults      0 0"
   
 
 
-## **Task 14**: Change group membership on /mnt/mnt1 to group10. Set read/write/execute permissions on /mnt/mnt1 for group members, and revoke all permissions for public.  
+## **Task 11**: Change group membership on /mnt/mnt1 to group10. Set read/write/execute permissions on /mnt/mnt1 for group members, and revoke all permissions for public.  
   
 `chown :group10 /mnt/mnt1`  
 `chmod 770 /mnt/mnt1`  
 
-## **Task 15**: Create a logical volume called lvswap of size 300MB in vgtest volume group. Initialize the logical volume for swap use. Use the UUID and place an entry for persistence.   
+## **Task 12**: Create a logical volume called lvswap of size 300MB in vgtest volume group. Initialize the logical volume for swap use. Use the UUID and place an entry for persistence.   
   
 
 `lvcreate -n lvswap -L 300m vgtest`  
@@ -106,52 +106,9 @@ UUID=(the lv uuid here)     /mnt/mnt1    ext4    defaults      0 0"
 `swapon --show`  
   
 
-## **Task 16**: Use tar and bzip2 to create a compressed archive of the /etc/sysconfig directory. Store the archive under /tmp as etc.tar.bz2.  
+## **Task 13**: Use tar and bzip2 to create a compressed archive of the /etc/sysconfig directory. Store the archive under /tmp as etc.tar.bz2.  
   
-`tar cvfj /tmp/etc.tar.bz2 /etc/sysconfig`  
+`tar cfj /tmp/etc.tar.bz2 /etc/sysconfig`  
 `tar tfv /tmp/etc.tar.bz2` #list the archive for the test  
-  
-## **Task 17**: Create a directory hierarchy /dir1/dir2/dir3/dir3, and apply SELinux contexts for /etc on it recursively.  
-  
-`mkdir -p /dir1/dir2/dir3`  
-`ls -dZ /etc` check the context of the /etc, it's **etc_t**  
-`semanage fcontext -a -t  etc_t " /dir1(/.*)?"`  
-`restorecon -Rv /dir1`  
-  
-**Task 18**: Enable access to the atd service for user20 and deny for user30. 
 
-`echo "user30" >> /etc/at.deny`  
-`echo "user20" >> /etc/at.allow`  
-`systemctl restart atd`  
   
-## **Task 19**: Add a custom message “This is RHCSA sample exam on $(date) by $LOGNAME” to the /var/log/messages file as the root user. Use regular expression to confirm the message entry to the log file.  
-  
-`logger "This is RHCSA sample exam on $(date) by $LOGNAME"`  
-`grep RHCSA /var/log/messages`  
-  
-## **Task 20**: Allow user20 to use sudo without being prompted for their password.  
-  
-
-`#!/bin/bash`  
-
-`echo "user20 ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user20 `  
-`sudo -u user20 sudo cat /boot/efi/EFI/redhat/grub.cfg > /dev/null`  
-`if [  $? -eq 0 ]; then`  
-	`echo user20 has a sudo privileges without password`  
-`else`  
-	`echo error`  
-`fi`  
-  
-
-## **Task 21**: Write a bash shell script that creates three users: user555, user666, user777 with nologin shell and passwords matching their names. The script should also extract names of these three new users from the /etc/passwd and redirect them to /var/tmp/newusers.
-
-
-`#!/bin/bash`  
-`for i in {5..7}; do`  
-	`useradd user$i$i$i  #-s /sbin/nologin`  
-	`echo user$i$i$i:user$i$i$i | chpasswd`  
-`done`  
-`cut -d : -f 1 /etc/passwd | tail -n 3 > /var/tmp/newusers`  
-`echo "Newly added users are: "`  
-`cat /var/tmp/newusers`  
-
