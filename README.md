@@ -84,9 +84,9 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `mkfs.ext4 /dev/vgtest/lvol1`  
 test `blkid /dev/vgtest/lvol1`  
 `mkdir /mnt/mnt1`  
-`echo "/dev/vgtest/lvol1    /mnt/mnt1    ext4    defaults      0 0" >> /etc/fstab`  
-`mount -a`  
-test `mount | grep mnt1`  
+`nano /etc/fstab`
+UUID=(the lv uuid here)     /mnt/mnt1    ext4    defaults      0 0"   
+`mount `
   
 
 
