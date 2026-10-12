@@ -77,7 +77,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `fdisk` `n`  
 `fdisk` first sector: press enter, last sector: +3G(Whatever space is available that's equal or greater than 300M)   
 `fdisk p`  
-`fdisk` `w` 
+`fdisk w` 
 `pvcreate /dev/sdb1`
 `vgcreate vgtest /dev/sdb1`   
 `lvcreate -L 300m /dev/vgtest -n lvo1`  
