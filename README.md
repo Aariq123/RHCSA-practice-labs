@@ -79,8 +79,11 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `fdisk p`  
 `fdisk w` 
 `pvcreate /dev/sdb1`
-`vgcreate vgtest /dev/sdb1`   
+
+`vgcreate vgtest /dev/sdb1` 
+
 `lvcreate -L 300m /dev/vgtest -n lvo1`  
+
 `mkfs.ext4 /dev/vgtest/lvol1`  
 test `blkid /dev/vgtest/lvol1`  
 `mkdir /mnt/mnt1`  
