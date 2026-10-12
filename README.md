@@ -73,13 +73,11 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 
 ## Task 13: Create a logical volume called lvol1 of size 300MB in vgtest volume group. Mount the Ext4 file system persistently to /mnt/mnt1.  
 
-`parted /dev/sdb`   assume we are dealing with gpt partition scheme
-_(parted)_ `mkpart`  
-_(parted)_ name ` pv1`  
-_(parted)_ file system type `xfs`  
-_(parted)_ start ` 1mb`  
-_(parted)_ end ` 3gb`  
-_(parted)_ `print`  
+`fdisk /dev/sdb`   assume we are dealing with gpt partition scheme
+_(fdisk)_ `n`  
+_(fdisk)_ first sector: press enter, last sector: +3G(Whatever space is available that's equal or greater than 300M)   
+_(fdisk)_ `p`  
+_(fdisk)_ `w` 
 **1      1MB   3000mb  2999MB    pv1    xfs**  
 (parted)`set 1 lvm on`  
 **1      1MB   3000mb  2999MB    pv1    xfs     lvm**   
