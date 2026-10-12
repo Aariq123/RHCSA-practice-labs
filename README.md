@@ -76,7 +76,7 @@ find the line **SELINUX=enforcing** and change it to **SELINUX=permissive**
 `fdisk /dev/sdb`   assume we are dealing with gpt partition scheme
 `fdisk` `n`  
 `fdisk` first sector: press enter, last sector: +3G(Whatever space is available that's equal or greater than 300M)   
-`fdisk` `p`  
+`fdisk p`  
 `fdisk` `w` 
 `pvcreate /dev/sdb1`
 `vgcreate vgtest /dev/sdb1`   
@@ -86,7 +86,7 @@ test `blkid /dev/vgtest/lvol1`
 `mkdir /mnt/mnt1`  
 `nano /etc/fstab`
 UUID=(the lv uuid here)     /mnt/mnt1    ext4    defaults      0 0"   
-`mount `
+`mount -a`
   
 
 
